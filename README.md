@@ -71,6 +71,8 @@ docker logs tests && docker rm mongo && docker rm tests
 ```
 После прохождения тестов в консоль будет выведен отчет pytest и coverage.
 
+[⬆️Оглавление](#оглавление)
+
 <br>
 
 ## Запуск приложения:
@@ -109,5 +111,5 @@ cd .. && rm -fr forms_patterns_finder
 ## Автор:
 [Aleksei Proskuriakov](https://github.com/alexpro2022)
 
-[⬆️В начало](#salaries_counter)
+[⬆️В начало](#Forms'-patterns-finder)
 
