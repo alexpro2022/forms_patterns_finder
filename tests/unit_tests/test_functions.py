@@ -59,7 +59,7 @@ def test_make_app():
 @pytest.mark.skip(reason='Cannot properly mock a request')
 @pytest.mark.parametrize('payload, expected', (
     ({'f_name1': 'value1', 'f_name2': 5}, [('f_name1', 'value1'), ('f_name2', 5)]),
-    # ({'f_name1': 3, 'f_name2': 'value2'}, '[["f_name1","3"],["f_name2","value2"]]'),
+    ({'f_name1': 3, 'f_name2': 'value2'}, '[["f_name1","3"],["f_name2","value2"]]'),
 ))
 def test_parse(payload, expected):
     request = make_mocked_request('POST', '/get_form', writer=payload)
