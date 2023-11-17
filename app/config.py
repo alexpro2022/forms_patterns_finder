@@ -11,7 +11,7 @@ class Settings(BaseSettings):
     regex_phone_number: str = r'^\+7\s\d{3}\s\d{3}\s\d{2}\s\d{2}$'
     regex_email: str = r'^\w+\.*\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$'
     database_name: str = 'patterns_db'
-    collection_name: str = 'patterns_coll'
+    collection_name: str = 'patterns_collection'
 
     model_config = SettingsConfigDict(
         env_file='.env', env_file_encoding='utf-8', extra='ignore'
