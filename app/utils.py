@@ -41,5 +41,4 @@ def is_email(value: str) -> bool:
 
 
 def _fullmatch(pattern: str, value: str) -> bool:
-    # pattern = re.compile(pattern)  # type: ignore
     return bool(re.fullmatch(re.compile(pattern), value))
