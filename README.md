@@ -1,4 +1,4 @@
-# Forms' patterns finder
+# Forms patterns finder
 
 [Тестовое задание](https://docs.google.com/document/d/1fMFwPBs53xzcrltEFOpEG4GWTaQ-5jvVLrNT6_hmC7I/edit#heading=h.pieurecv5l1j)
 
@@ -111,5 +111,5 @@ cd .. && rm -fr forms_patterns_finder
 ## Автор:
 [Aleksei Proskuriakov](https://github.com/alexpro2022)
 
-[⬆️В начало](#Forms'-patterns-finder)
+[⬆️В начало](#forms-patterns-finder)
 
