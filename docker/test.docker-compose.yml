@@ -15,7 +15,7 @@ services:
     build: 
       context: ..
       dockerfile: ./docker/test.Dockerfile
-    command: bash -c "pytest"
+    command: bash -c "coverage run -m pytest && coverage report -m"
     depends_on:
       - mongo
     env_file:

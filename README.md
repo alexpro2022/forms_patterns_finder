@@ -65,11 +65,10 @@ nano .env
 2. Из корневой директории проекта выполните команды запуска тестов:
 ```bash
 docker compose -f docker/test.docker-compose.yml up --build --abort-on-container-exit
-clear
-docker logs tests
-docker rm mongo
-docker rm tests
+docker logs tests && docker rm mongo && docker rm tests
 ```
+# clear
+# docker logs tests
 После прохождения тестов в консоль будет выведен отчет pytest.
 
 <br>
