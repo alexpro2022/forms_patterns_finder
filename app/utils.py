@@ -1,9 +1,10 @@
 import re
 from datetime import datetime as dt
+
 from aiohttp import web
 
-from app.data import types as t
 from app.config import config
+from app.data import types as t
 
 
 async def get_form_data(request: web.Request) -> dict[str, str]:
@@ -40,5 +41,5 @@ def is_email(value: str) -> bool:
 
 
 def _fullmatch(pattern: str, value: str) -> bool:
-    pattern = re.compile(pattern)
-    return bool(re.fullmatch(pattern, value))
+    # pattern = re.compile(pattern)  # type: ignore
+    return bool(re.fullmatch(re.compile(pattern), value))

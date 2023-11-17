@@ -8,18 +8,18 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
     volumes:
-      - mongodb_vol:/data/db      
+      - mongodb_vol:/data/db
 
   tests:
     container_name: tests
-    build: 
+    build:
       context: ..
       dockerfile: ./docker/test.Dockerfile
     command: bash -c "coverage run --source=app -m pytest && coverage report -m"
     depends_on:
       - mongo
     env_file:
-      - ../.env   
+      - ../.env
 
 volumes:
   mongodb_vol:

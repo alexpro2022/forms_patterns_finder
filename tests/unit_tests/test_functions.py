@@ -1,13 +1,10 @@
-from aiohttp.test_utils import make_mocked_request
 import pytest
+from aiohttp.test_utils import make_mocked_request
+
 from tests import conftest as c
-from tests.fixtures.data import (
-    data_test_is_date,
-    data_test_is_email,
-    data_test_is_match,
-    data_test_is_phone_number,
-    data_test_validate,
-)
+from tests.fixtures.data import (data_test_is_date, data_test_is_email,
+                                 data_test_is_match, data_test_is_phone_number,
+                                 data_test_validate)
 
 
 @pytest.mark.parametrize('value, expected', (
@@ -47,7 +44,7 @@ def test_get_best_match(value, expected):
 
 @pytest.mark.parametrize('pattern, form_data, expected', (
     *data_test_is_match.data,
-))    
+))
 def test_is_match(pattern, form_data, expected):
     assert c.is_match(pattern, form_data) == expected
 
@@ -58,8 +55,10 @@ def test_make_app():
 
 @pytest.mark.skip(reason='Cannot properly mock a request')
 @pytest.mark.parametrize('payload, expected', (
-    ({'f_name1': 'value1', 'f_name2': 5}, [('f_name1', 'value1'), ('f_name2', 5)]),
-    ({'f_name1': 3, 'f_name2': 'value2'}, '[["f_name1","3"],["f_name2","value2"]]'),
+    ({'f_name1': 'value1', 'f_name2': 5}, [
+     ('f_name1', 'value1'), ('f_name2', 5)]),
+    ({'f_name1': 3, 'f_name2': 'value2'},
+     '[["f_name1","3"],["f_name2","value2"]]'),
 ))
 def test_parse(payload, expected):
     request = make_mocked_request('POST', '/get_form', writer=payload)

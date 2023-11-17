@@ -7,7 +7,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
     volumes:
-      - mongodb_vol:/data/db      
+      - mongodb_vol:/data/db
 
 
   mongo-express:
@@ -18,23 +18,23 @@ services:
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: example
-      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017     
+      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017
     depends_on:
       - mongo
 
   tests:
     container_name: container-tests
-    build: 
+    build:
       context: ..
       dockerfile: ./docker/test.Dockerfile
     command: bash -c "pytest"
     depends_on:
       - mongo
     env_file:
-      - ../.env   
+      - ../.env
 
   app:
-    build: 
+    build:
       context: ..
       dockerfile: ./docker/dev.Dockerfile
     command: bash -c "python main.py"
@@ -43,7 +43,7 @@ services:
     depends_on:
       - tests
     env_file:
-      - ../.env  
+      - ../.env
 
 volumes:
   mongodb_vol:

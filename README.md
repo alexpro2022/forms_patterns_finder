@@ -28,6 +28,7 @@
 [![Pytest-aiohttp](https://img.shields.io/badge/-Pytest--aiohttp-464646?logo=Pytest-aiohttp)](https://pypi.org/project/pytest-aiohttp/)
 [![coverage](https://img.shields.io/badge/-coverage-464646?logo=coverage)](https://coverage.readthedocs.io/en/latest/index.html)
 [![deepdiff](https://img.shields.io/badge/-deepdiff-464646?logo=deepdiff)](https://zepworks.com/deepdiff/6.3.1/diff.html)
+[![pre-commit](https://img.shields.io/badge/-pre--commit-464646?logo=pre-commit)](https://pre-commit.com/)
 
 
 [⬆️Оглавление](#оглавление)
@@ -41,13 +42,13 @@
 
 <br>
 
-## Установка и запуск тестов: 
+## Установка и запуск тестов:
 #### Docker Compose
 <details><summary>Предварительные условия:</summary>
 
 Предполагается, что пользователь:
  - установил [Docker](https://docs.docker.com/engine/install/) и [Docker Compose](https://docs.docker.com/compose/install/) на локальной машине. Проверить наличие можно выполнив команды:
- 
+
     ```bash
     docker --version && docker-compose --version
     ```
@@ -103,7 +104,7 @@ docker compose -f docker/docker-compose.yml down -v
 ```bash
 cd .. && rm -fr forms_patterns_finder
 ```
-  
+
 [⬆️Оглавление](#оглавление)
 
 <br>
@@ -112,4 +113,3 @@ cd .. && rm -fr forms_patterns_finder
 [Aleksei Proskuriakov](https://github.com/alexpro2022)
 
 [⬆️В начало](#forms-patterns-finder)
-

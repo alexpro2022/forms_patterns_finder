@@ -4,7 +4,6 @@ from deepdiff import DeepDiff
 from tests import conftest as c
 from tests.fixtures import data as d
 
-
 ENDPOINT = '/get_form'
 
 

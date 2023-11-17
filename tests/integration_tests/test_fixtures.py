@@ -1,5 +1,6 @@
-from tests import conftest as c
 import pytest
+
+from tests import conftest as c
 
 
 def test_get_app(get_app) -> None:

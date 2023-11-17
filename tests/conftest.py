@@ -1,14 +1,14 @@
-from aiohttp import web
 import pytest
 import pytest_asyncio
+from aiohttp import web
 from aiohttp.test_utils import TestClient  # noqa
 
-from app.calculation import get_best_match, is_match  # noqa
-from app.data.load_data import *  # noqa
-from app.data.types import *  # noqa
 from app.app import make_app
+from app.calculation import get_best_match, is_match  # noqa
 from app.config import config
 from app.data import load_data
+from app.data.load_data import *  # noqa
+from app.data.types import *  # noqa
 from app.db import setup_db
 from app.utils import *  # noqa
 
@@ -21,7 +21,7 @@ async def get_db():
 @pytest_asyncio.fixture
 async def get_app(get_db) -> web.Application:
     app = make_app()
-    app["db"] = get_db
+    app['db'] = get_db
     return app
 
 
