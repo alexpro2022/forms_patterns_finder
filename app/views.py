@@ -11,3 +11,8 @@ async def forms_view(request: web.Request) -> web.Response:
         request.app['db'][config.collection_name], data
     )
     return web.json_response(data=result)
+
+
+async def hello(request: web.Request) -> web.Response:
+    text = 'Web-приложение для определения заполненных форм.'
+    return web.Response(text=text)

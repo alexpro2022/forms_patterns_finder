@@ -83,7 +83,7 @@ docker logs tests && docker rm mongo && docker rm tests
 docker compose -f docker/docker-compose.yml up -d --build
 ```
 Проект будет развернут в docker-контейнерах:
-  - приложение можно протестировать Postman по адресу: http://localhost:8080
+  - приложение можно протестировать Postman по адресу: http://localhost:8080/get_form
   - Доступ к БД осуществляется по адресу: http://localhost:8081, учетные данные "admin:pass", коллекция шаблонов `patterns_collection`
 
 2. Остановить docker и удалить контейнеры можно командой из корневой директории проекта:
