@@ -26,6 +26,7 @@
 [![Pytest](https://img.shields.io/badge/-Pytest-464646?logo=Pytest)](https://docs.pytest.org/en/latest/)
 [![Pytest-asyncio](https://img.shields.io/badge/-Pytest--asyncio-464646?logo=Pytest-asyncio)](https://pypi.org/project/pytest-asyncio/)
 [![Pytest-aiohttp](https://img.shields.io/badge/-Pytest--aiohttp-464646?logo=Pytest-aiohttp)](https://pypi.org/project/pytest-aiohttp/)
+[![coverage](https://img.shields.io/badge/-coverage-464646?logo=coverage)](https://coverage.readthedocs.io/en/latest/index.html)
 [![deepdiff](https://img.shields.io/badge/-deepdiff-464646?logo=deepdiff)](https://zepworks.com/deepdiff/6.3.1/diff.html)
 
 
@@ -56,8 +57,8 @@
 1. Клонируйте репозиторий с GitHub и введите данные для переменных окружения (тестовые данные уже введены):
 
 ```bash
-git clone https://github.com/alexpro2022/.git
-cd 
+git clone https://github.com/alexpro2022/forms_patterns_finder.git
+cd forms_patterns_finder
 cp env_example .env
 nano .env
 ```
@@ -67,9 +68,7 @@ nano .env
 docker compose -f docker/test.docker-compose.yml up --build --abort-on-container-exit
 docker logs tests && docker rm mongo && docker rm tests
 ```
-# clear
-# docker logs tests
-После прохождения тестов в консоль будет выведен отчет pytest.
+После прохождения тестов в консоль будет выведен отчет pytest и coverage.
 
 <br>
 
@@ -87,7 +86,7 @@ docker compose -f docker/docker-compose.yml up -d --build
 ```bash
 docker compose -f docker/docker-compose.yml down
 ```
-Если также необходимо удалить тома базы данных, статики и медиа:
+3. Если также необходимо удалить тома базы данных, статики и медиа:
 ```bash
 docker compose -f docker/docker-compose.yml down -v
 ```
@@ -96,10 +95,10 @@ docker compose -f docker/docker-compose.yml down -v
 
 <br>
 
-## Удаление:
+## Удаление приложения:
 Из корневой директории проекта выполните команду:
 ```bash
-cd .. && rm -fr 
+cd .. && rm -fr forms_patterns_finder
 ```
   
 [⬆️Оглавление](#оглавление)
@@ -110,3 +109,4 @@ cd .. && rm -fr
 [Aleksei Proskuriakov](https://github.com/alexpro2022)
 
 [⬆️В начало](#salaries_counter)
+

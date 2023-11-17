@@ -6,7 +6,7 @@ from aiohttp.test_utils import TestClient  # noqa
 from app.calculation import get_best_match, is_match  # noqa
 from app.data.load_data import *  # noqa
 from app.data.types import *  # noqa
-from app.app import app_init, make_app
+from app.app import make_app
 from app.config import config
 from app.data import load_data
 from app.db import setup_db

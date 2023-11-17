@@ -27,6 +27,4 @@ async def find_pattern(coll: AgnosticCollection, form_data: dict[str, str]):
     if not matching_patterns:
         return form_data
     name = get_best_match(matching_patterns).get('name')
-    if name is None:
-        return form_data
     return {'pattern_name': name}

@@ -52,6 +52,10 @@ def test_is_match(pattern, form_data, expected):
     assert c.is_match(pattern, form_data) == expected
 
 
+def test_make_app():
+    assert isinstance(c.make_app(), c.web.Application)
+
+
 @pytest.mark.skip(reason='Cannot properly mock a request')
 @pytest.mark.parametrize('payload, expected', (
     ({'f_name1': 'value1', 'f_name2': 5}, [('f_name1', 'value1'), ('f_name2', 5)]),

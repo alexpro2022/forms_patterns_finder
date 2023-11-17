@@ -6,14 +6,6 @@ from app.data import types as t
 from app.config import config
 
 
-def info(obj, raise_assert: bool = True):
-    if hasattr(obj, '__dict__'):
-        obj = f'!!!__dict__: {vars(obj)}'
-    print(obj)
-    if raise_assert:
-        assert 0
-
-
 async def get_form_data(request: web.Request) -> dict[str, str]:
     """Parse, validate and change value to the type(value)."""
     data = await request.post()
