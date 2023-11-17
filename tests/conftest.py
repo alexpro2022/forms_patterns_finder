@@ -2,6 +2,7 @@ import pytest
 import pytest_asyncio
 from aiohttp import web
 from aiohttp.test_utils import TestClient  # noqa
+from motor.core import AgnosticDatabase
 
 from app.app import make_app
 from app.calculation import get_best_match, is_match  # noqa
@@ -14,7 +15,7 @@ from app.utils import *  # noqa
 
 
 @pytest_asyncio.fixture
-async def get_db():
+async def get_db() -> AgnosticDatabase:
     return await setup_db(config.database_url, load_data.PATTERNS)
 
 
@@ -26,5 +27,5 @@ async def get_app(get_db) -> web.Application:
 
 
 @pytest.fixture
-def async_client(aiohttp_client, event_loop, get_app):
+def async_client(aiohttp_client, event_loop, get_app) -> TestClient:
     return event_loop.run_until_complete(aiohttp_client(get_app))

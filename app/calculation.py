@@ -1,7 +1,9 @@
 from motor.core import AgnosticCollection
 
 
-def get_best_match(matching_patterns: list[dict[str, str]]) -> dict[str, str]:
+def get_best_match(
+    matching_patterns: list[dict[str, str]]
+) -> dict[str, str]:
     return sorted(
         matching_patterns, key=lambda pattern: len(pattern), reverse=True
     )[0]
@@ -17,7 +19,9 @@ def is_match(pattern: dict[str, str], form_data: dict[str, str]) -> bool:
     return True
 
 
-async def find_pattern(coll: AgnosticCollection, form_data: dict[str, str]):
+async def find_pattern(
+    coll: AgnosticCollection, form_data: dict[str, str]
+) -> dict[str, str]:
     matching_patterns = []
     for field_name, field_type in form_data.items():
         cursor = coll.find({field_name: field_type})
@@ -26,5 +30,5 @@ async def find_pattern(coll: AgnosticCollection, form_data: dict[str, str]):
                 matching_patterns.append(pattern)
     if not matching_patterns:
         return form_data
-    name = get_best_match(matching_patterns).get('name')
+    name = get_best_match(matching_patterns)['name']
     return {'pattern_name': name}
