@@ -1,11 +1,7 @@
-from tests import conftest as c
-
-'''
-def test_get_app(get_app) -> None:
-    assert isinstance(get_app, c.web.Application)
-    assert isinstance(get_app.get('db'), c.AgnosticDatabase)
-'''
+from aiohttp import web
+from aiohttp.test_utils import TestClient
 
 
 def test_async_client(async_client) -> None:
-    assert isinstance(async_client, c.TestClient)
+    assert isinstance(async_client, TestClient)
+    assert isinstance(async_client.app, web.Application)
