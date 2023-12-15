@@ -13,10 +13,5 @@ from app.utils import *
 
 
 @pytest_asyncio.fixture
-async def get_app() -> web.Application:
-    return await app_init()
-
-
-@pytest.fixture
-def async_client(aiohttp_client, loop, get_app) -> TestClient:
-    return loop.run_until_complete(aiohttp_client(get_app))
+async def async_client(aiohttp_client) -> TestClient:
+    return await aiohttp_client(await app_init())

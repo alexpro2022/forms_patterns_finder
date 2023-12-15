@@ -21,13 +21,12 @@ async def test_get_form_endpoint(async_client, payload, expected) -> None:
     assert response.status == web.HTTPOk.status_code
     result = await response.json()
     diff = DeepDiff(result, expected, ignore_order=True)
-    assert not diff
+    assert not diff, diff
 
 
 @pytest.mark.asyncio
 async def test_hello(async_client):
-    expected = 'Web-приложение для определения заполненных форм.'
+    expected_response = 'Web-приложение для определения заполненных форм.'
     response = await async_client.get(ENDPOINT)
     assert response.status == web.HTTPOk.status_code
-    text = await response.text()
-    assert text == expected
+    assert await response.text() == expected_response
