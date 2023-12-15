@@ -2,7 +2,6 @@ import pytest
 from aiohttp import web
 from deepdiff import DeepDiff
 
-from tests import conftest as c
 from tests.fixtures import data as d
 
 ENDPOINT = '/get_form'
@@ -17,9 +16,7 @@ ENDPOINT = '/get_form'
     *d.FIELD_NAME_MISMATCH_SET,
     *d.FIELD_VALUE_MISMATCH_SET,
 ))
-async def test_get_form_endpoint(
-    async_client: c.TestClient, payload: dict, expected: dict
-) -> None:
+async def test_get_form_endpoint(async_client, payload, expected) -> None:
     response = await async_client.post(ENDPOINT, data=payload)
     assert response.status == web.HTTPOk.status_code
     result = await response.json()
@@ -28,7 +25,7 @@ async def test_get_form_endpoint(
 
 
 @pytest.mark.asyncio
-async def test_hello(async_client: c.TestClient):
+async def test_hello(async_client):
     expected = 'Web-приложение для определения заполненных форм.'
     response = await async_client.get(ENDPOINT)
     assert response.status == web.HTTPOk.status_code

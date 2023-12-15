@@ -18,5 +18,5 @@ async def get_app() -> web.Application:
 
 
 @pytest.fixture
-def async_client(aiohttp_client, event_loop, get_app) -> TestClient:
-    return event_loop.run_until_complete(aiohttp_client(get_app))
+def async_client(aiohttp_client, loop, get_app) -> TestClient:
+    return loop.run_until_complete(aiohttp_client(get_app))
