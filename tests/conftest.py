@@ -1,29 +1,20 @@
 import pytest
 import pytest_asyncio
 from aiohttp import web
-from aiohttp.test_utils import TestClient  # noqa
-from motor.core import AgnosticDatabase
+from aiohttp.test_utils import TestClient
 
-from app.app import make_app
-from app.calculation import get_best_match, is_match  # noqa
+from app.app import app_init
+from app.calculation import get_best_match, is_match
 from app.config import config
 from app.data import load_data
-from app.data.load_data import *  # noqa
-from app.data.types import *  # noqa
-from app.db import setup_db
-from app.utils import *  # noqa
+from app.data.load_data import *
+from app.data.types import *
+from app.utils import *
 
 
 @pytest_asyncio.fixture
-async def get_db() -> AgnosticDatabase:
-    return await setup_db(config.database_url, load_data.PATTERNS)
-
-
-@pytest_asyncio.fixture
-async def get_app(get_db) -> web.Application:
-    app = make_app()
-    app['db'] = get_db
-    return app
+async def get_app() -> web.Application:
+    return await app_init()
 
 
 @pytest.fixture
